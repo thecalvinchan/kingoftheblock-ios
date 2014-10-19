@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Controllers/ActiveRunViewController.h"
+#import "Controllers/ProfileViewController.h"
 #import "Masonry.h"
 
 @interface AppDelegate ()
@@ -23,12 +24,20 @@
     self.window.frame = [[UIScreen mainScreen] bounds];
     
     // Override point for customization after application launch.
-    ActiveRunViewController *activeRunViewController = [[ActiveRunViewController alloc] init];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     // Add Active Run View Controller
+    ActiveRunViewController *activeRunViewController = [[ActiveRunViewController alloc] init];
     UITabBarItem *activeRunTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Run" image:nil selectedImage:nil];
     [activeRunViewController setTabBarItem:activeRunTabBarItem];
     [tabBarController addChildViewController:activeRunViewController];
+    // Add Profile View Controller
+    ProfileViewController *profileViewController = [[ProfileViewController alloc] init];
+    [profileViewController setUsername:@"cchan"];
+    UINavigationController *profileNavigationController = [[UINavigationController alloc] init];
+    [profileNavigationController pushViewController:profileViewController animated:false];
+    UITabBarItem *profileTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:nil selectedImage:nil];
+    [profileNavigationController setTabBarItem:profileTabBarItem];
+    [tabBarController addChildViewController:profileNavigationController];
     
     [tabBarController setSelectedIndex:0];
     [self.window setRootViewController: tabBarController];

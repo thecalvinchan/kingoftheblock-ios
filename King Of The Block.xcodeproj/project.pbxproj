@@ -17,6 +17,7 @@
 		3E4851FE19F3632100B4EAFA /* King_Of_The_BlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */; };
 		3E48521119F37ACC00B4EAFA /* ActiveRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E48521019F37ACC00B4EAFA /* ActiveRunViewController.m */; };
 		3E48521319F37F3400B4EAFA /* Launchscreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E48521219F37F3400B4EAFA /* Launchscreen.xib */; };
+		3EDA639B19F3E04C006BF5BF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA639A19F3E04C006BF5BF /* ProfileViewController.m */; };
 		E3A21687F3BC509A6D8FCA75 /* libPods-King Of The Block.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0BD4D0C917C03722B14826 /* libPods-King Of The Block.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		3E48520F19F37ACC00B4EAFA /* ActiveRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveRunViewController.h; path = "King Of The Block/Controllers/ActiveRunViewController.h"; sourceTree = "<group>"; };
 		3E48521019F37ACC00B4EAFA /* ActiveRunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveRunViewController.m; path = "King Of The Block/Controllers/ActiveRunViewController.m"; sourceTree = "<group>"; };
 		3E48521219F37F3400B4EAFA /* Launchscreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Launchscreen.xib; sourceTree = "<group>"; };
+		3EDA639919F3E04C006BF5BF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "King Of The Block/Controllers/ProfileViewController.h"; sourceTree = "<group>"; };
+		3EDA639A19F3E04C006BF5BF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "King Of The Block/Controllers/ProfileViewController.m"; sourceTree = "<group>"; };
 		A9734BF99E980D005E94E8F8 /* Pods-King Of The Block.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-King Of The Block.release.xcconfig"; path = "Pods/Target Support Files/Pods-King Of The Block/Pods-King Of The Block.release.xcconfig"; sourceTree = "<group>"; };
 		B4163593AB77AFB42E2A541B /* Pods-King Of The Block.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-King Of The Block.debug.xcconfig"; path = "Pods/Target Support Files/Pods-King Of The Block/Pods-King Of The Block.debug.xcconfig"; sourceTree = "<group>"; };
 		DC0BD4D0C917C03722B14826 /* libPods-King Of The Block.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-King Of The Block.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +164,8 @@
 			children = (
 				3E48520F19F37ACC00B4EAFA /* ActiveRunViewController.h */,
 				3E48521019F37ACC00B4EAFA /* ActiveRunViewController.m */,
+				3EDA639919F3E04C006BF5BF /* ProfileViewController.h */,
+				3EDA639A19F3E04C006BF5BF /* ProfileViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -322,6 +327,7 @@
 				3E44B93419F3C31B00A1C67A /* ImageHelpers.m in Sources */,
 				3E44B92B19F3858700A1C67A /* WebSocket.m in Sources */,
 				3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */,
+				3EDA639B19F3E04C006BF5BF /* ProfileViewController.m in Sources */,
 				3E4851E419F3632100B4EAFA /* main.m in Sources */,
 				3E44B93819F3C89E00A1C67A /* ColorHelpers.m in Sources */,
 			);

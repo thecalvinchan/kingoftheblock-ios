@@ -111,7 +111,7 @@
     [self.activeMapView removeOverlay:self.polyline];
     
     NSMutableDictionary *connectionData = [[NSMutableDictionary alloc] init];
-    [connectionData setValue:@"evancasey" forKey:@"userId"];
+    [connectionData setValue:@"cchan" forKey:@"userId"];
     [socketIO sendEvent:@"endRun" withData:connectionData];
     [self stopStandardUpdates];
 }
@@ -174,7 +174,7 @@
     NSMutableDictionary *connectionData = [[NSMutableDictionary alloc] init];
     NSArray *coords = [NSArray arrayWithObjects:[NSNumber numberWithDouble:location.coordinate.latitude], [NSNumber numberWithDouble:location.coordinate.longitude], nil];
     
-    [connectionData setValue:@"evancasey" forKey:@"userId"];
+    [connectionData setValue:@"cchan" forKey:@"userId"];
     [connectionData setValue:coords forKey:@"coords"];
     [socketIO sendEvent:@"updateLocation" withData:connectionData];
 }
