@@ -6,11 +6,18 @@
 //  Copyright (c) 2014 hackNY. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "ActiveRunViewController.h"
 #import "WebSocket.h"
 #import "Masonry.h"
+#import <MapKit/MapKit.h>
 
-@implementation LoginViewController {
+@interface ActiveRunViewController()
+@property (strong, nonatomic)UIButton *sendCoordsButton;
+@property (strong, nonatomic)MKMapView *activeMapView;
+
+@end
+
+@implementation ActiveRunViewController {
     SocketIO *socketIO;
 }
 
@@ -22,11 +29,32 @@
     UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
     contentView.backgroundColor = [UIColor greenColor];
     
-    CGRect buttonFrame = CGRectMake(200, 200, 200, 300);
-    UIButton *sendCoordsButton = [[UIButton alloc] initWithFrame:buttonFrame];
-    [sendCoordsButton addTarget:self action:@selector(sendCoords) forControlEvents:UIControlEventTouchUpInside];
-    [sendCoordsButton setTitle:@"Send Coords" forState:UIControlStateNormal];
-    [contentView addSubview:sendCoordsButton];
+    // MapView
+    self.activeMapView = [[MKMapView alloc] initWithFrame:contentView.frame];
+    [self.activeMapView setRotateEnabled:false];
+    [self.activeMapView setPitchEnabled:false];
+    [self.activeMapView setZoomEnabled:false];
+    [self.activeMapView  setScrollEnabled:false];
+    
+    // Center map to Manhattan
+    CLLocationCoordinate2D manhattanCoords = CLLocationCoordinate2DMake(40.790278, -73.959722);
+    MKCoordinateSpan manhattanBounds = MKCoordinateSpanMake(0.05, 0.3);
+    [self.activeMapView setRegion:MKCoordinateRegionMake(manhattanCoords, manhattanBounds)];
+    [contentView addSubview:self.activeMapView];
+    
+    // Start Run Button
+    UIEdgeInsets padding = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.sendCoordsButton = [[UIButton alloc] init];
+    [self.sendCoordsButton addTarget:self action:@selector(sendCoords) forControlEvents:UIControlEventTouchUpInside];
+    [self.sendCoordsButton setTitle:@"Start Run" forState:UIControlStateNormal];
+    [self.sendCoordsButton setBackgroundColor:[UIColor redColor]];
+    [contentView addSubview:self.sendCoordsButton];
+    [self.sendCoordsButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        //make.top.equalTo(self.view.mas_top).with.offset(padding.top); //with is an optional semantic filler
+        make.left.equalTo(contentView.mas_left).with.offset(padding.left);
+        make.bottom.equalTo(contentView.mas_bottom).with.offset(-self.tabBarController.tabBar.frame.size.height-padding.bottom);
+        make.right.equalTo(contentView.mas_right).with.offset(-padding.right);
+    }];
     
     [self.view addSubview:contentView];
     socketIO = [WebSocket sharedWebSocket:self];

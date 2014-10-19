@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Controllers/LoginViewController.h"
+#import "Controllers/ActiveRunViewController.h"
 #import "Masonry.h"
 
 @interface AppDelegate ()
@@ -23,9 +23,9 @@
     self.window.frame = [[UIScreen mainScreen] bounds];
     
     // Override point for customization after application launch.
-    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    ActiveRunViewController *activeRunViewController = [[ActiveRunViewController alloc] init];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController addChildViewController:loginViewController];
+    [tabBarController addChildViewController:activeRunViewController];
     [self.window setRootViewController: tabBarController];
     return YES;
 }

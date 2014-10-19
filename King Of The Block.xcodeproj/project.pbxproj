@@ -13,7 +13,7 @@
 		3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E619F3632100B4EAFA /* AppDelegate.m */; };
 		3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851EE19F3632100B4EAFA /* Images.xcassets */; };
 		3E4851FE19F3632100B4EAFA /* King_Of_The_BlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */; };
-		3E48521119F37ACC00B4EAFA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E48521019F37ACC00B4EAFA /* LoginViewController.m */; };
+		3E48521119F37ACC00B4EAFA /* ActiveRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E48521019F37ACC00B4EAFA /* ActiveRunViewController.m */; };
 		3E48521319F37F3400B4EAFA /* Launchscreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E48521219F37F3400B4EAFA /* Launchscreen.xib */; };
 		E3A21687F3BC509A6D8FCA75 /* libPods-King Of The Block.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0BD4D0C917C03722B14826 /* libPods-King Of The Block.a */; };
 /* End PBXBuildFile section */
@@ -41,8 +41,8 @@
 		3E4851F719F3632100B4EAFA /* King Of The BlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "King Of The BlockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4851FC19F3632100B4EAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = King_Of_The_BlockTests.m; sourceTree = "<group>"; };
-		3E48520F19F37ACC00B4EAFA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "King Of The Block/Controllers/LoginViewController.h"; sourceTree = "<group>"; };
-		3E48521019F37ACC00B4EAFA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "King Of The Block/Controllers/LoginViewController.m"; sourceTree = "<group>"; };
+		3E48520F19F37ACC00B4EAFA /* ActiveRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiveRunViewController.h; path = "King Of The Block/Controllers/ActiveRunViewController.h"; sourceTree = "<group>"; };
+		3E48521019F37ACC00B4EAFA /* ActiveRunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiveRunViewController.m; path = "King Of The Block/Controllers/ActiveRunViewController.m"; sourceTree = "<group>"; };
 		3E48521219F37F3400B4EAFA /* Launchscreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Launchscreen.xib; sourceTree = "<group>"; };
 		A9734BF99E980D005E94E8F8 /* Pods-King Of The Block.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-King Of The Block.release.xcconfig"; path = "Pods/Target Support Files/Pods-King Of The Block/Pods-King Of The Block.release.xcconfig"; sourceTree = "<group>"; };
 		B4163593AB77AFB42E2A541B /* Pods-King Of The Block.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-King Of The Block.debug.xcconfig"; path = "Pods/Target Support Files/Pods-King Of The Block/Pods-King Of The Block.debug.xcconfig"; sourceTree = "<group>"; };
@@ -141,8 +141,8 @@
 		3E48520E19F37A8100B4EAFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E48520F19F37ACC00B4EAFA /* LoginViewController.h */,
-				3E48521019F37ACC00B4EAFA /* LoginViewController.m */,
+				3E48520F19F37ACC00B4EAFA /* ActiveRunViewController.h */,
+				3E48521019F37ACC00B4EAFA /* ActiveRunViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -300,7 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E48521119F37ACC00B4EAFA /* LoginViewController.m in Sources */,
+				3E48521119F37ACC00B4EAFA /* ActiveRunViewController.m in Sources */,
 				3E44B92B19F3858700A1C67A /* WebSocket.m in Sources */,
 				3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */,
 				3E4851E419F3632100B4EAFA /* main.m in Sources */,
