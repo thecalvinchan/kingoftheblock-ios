@@ -17,6 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    CGRect applicationFrame = [[UIScreen mainScreen] bounds];
+    UIView *contentView = [[UIView alloc] initWithFrame:applicationFrame];
+    contentView.backgroundColor = [UIColor greenColor];
+    
+    UIViewController *defaultViewController = [[UIViewController alloc] init];
+    [defaultViewController.view addSubview: contentView];
+
+    self.window = [UIWindow new];
+    [self.window makeKeyAndVisible];
+    self.window.frame = [[UIScreen mainScreen] bounds];
+    
+    [self.window setRootViewController: defaultViewController];
     return YES;
 }
 

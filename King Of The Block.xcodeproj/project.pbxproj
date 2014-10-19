@@ -10,9 +10,7 @@
 		3E4851E419F3632100B4EAFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E319F3632100B4EAFA /* main.m */; };
 		3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E619F3632100B4EAFA /* AppDelegate.m */; };
 		3E4851EA19F3632100B4EAFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E919F3632100B4EAFA /* ViewController.m */; };
-		3E4851ED19F3632100B4EAFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851EB19F3632100B4EAFA /* Main.storyboard */; };
 		3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851EE19F3632100B4EAFA /* Images.xcassets */; };
-		3E4851F219F3632100B4EAFA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851F019F3632100B4EAFA /* LaunchScreen.xib */; };
 		3E4851FE19F3632100B4EAFA /* King_Of_The_BlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +32,7 @@
 		3E4851E619F3632100B4EAFA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3E4851E819F3632100B4EAFA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3E4851E919F3632100B4EAFA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3E4851EC19F3632100B4EAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E4851EE19F3632100B4EAFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3E4851F119F3632100B4EAFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3E4851F719F3632100B4EAFA /* King Of The BlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "King Of The BlockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4851FC19F3632100B4EAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = King_Of_The_BlockTests.m; sourceTree = "<group>"; };
@@ -85,9 +81,7 @@
 				3E4851E619F3632100B4EAFA /* AppDelegate.m */,
 				3E4851E819F3632100B4EAFA /* ViewController.h */,
 				3E4851E919F3632100B4EAFA /* ViewController.m */,
-				3E4851EB19F3632100B4EAFA /* Main.storyboard */,
 				3E4851EE19F3632100B4EAFA /* Images.xcassets */,
-				3E4851F019F3632100B4EAFA /* LaunchScreen.xib */,
 				3E4851E119F3632100B4EAFA /* Supporting Files */,
 			);
 			path = "King Of The Block";
@@ -199,8 +193,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E4851ED19F3632100B4EAFA /* Main.storyboard in Resources */,
-				3E4851F219F3632100B4EAFA /* LaunchScreen.xib in Resources */,
 				3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,25 +234,6 @@
 			targetProxy = 3E4851F819F3632100B4EAFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3E4851EB19F3632100B4EAFA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E4851EC19F3632100B4EAFA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3E4851F019F3632100B4EAFA /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E4851F119F3632100B4EAFA /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3E4851FF19F3632100B4EAFA /* Debug */ = {
@@ -412,6 +385,7 @@
 				3E48520319F3632100B4EAFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E48520419F3632100B4EAFA /* Build configuration list for PBXNativeTarget "King Of The BlockTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +394,7 @@
 				3E48520619F3632100B4EAFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
