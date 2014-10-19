@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Controllers/LoginViewController.h"
+#import "Masonry.h"
 
 @interface AppDelegate ()
 
@@ -23,8 +24,9 @@
     
     // Override point for customization after application launch.
     LoginViewController *loginViewController = [[LoginViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc]  initWithRootViewController: loginViewController];
-    [self.window setRootViewController: navigationController];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController addChildViewController:loginViewController];
+    [self.window setRootViewController: tabBarController];
     return YES;
 }
 

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <SocketIO.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface LoginViewController : UIViewController <SocketIODelegate>
+@interface LoginViewController : UIViewController <SocketIODelegate, CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E44B92B19F3858700A1C67A /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B92A19F3858700A1C67A /* WebSocket.m */; };
+		3E44B92E19F3A3C000A1C67A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44B92D19F3A3C000A1C67A /* CoreLocation.framework */; };
 		3E4851E419F3632100B4EAFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E319F3632100B4EAFA /* main.m */; };
 		3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E619F3632100B4EAFA /* AppDelegate.m */; };
 		3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851EE19F3632100B4EAFA /* Images.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		3E44B92919F3858700A1C67A /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSocket.h; path = Singletons/WebSocket.h; sourceTree = "<group>"; };
 		3E44B92A19F3858700A1C67A /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSocket.m; path = Singletons/WebSocket.m; sourceTree = "<group>"; };
+		3E44B92D19F3A3C000A1C67A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3E4851DE19F3632100B4EAFA /* King Of The Block.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "King Of The Block.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4851E219F3632100B4EAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4851E319F3632100B4EAFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E44B92E19F3A3C000A1C67A /* CoreLocation.framework in Frameworks */,
 				E3A21687F3BC509A6D8FCA75 /* libPods-King Of The Block.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +160,7 @@
 		FA42352794CF3CEFE75E6D77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E44B92D19F3A3C000A1C67A /* CoreLocation.framework */,
 				DC0BD4D0C917C03722B14826 /* libPods-King Of The Block.a */,
 			);
 			name = Frameworks;
@@ -404,6 +408,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "King Of The Block/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -416,6 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "King Of The Block/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
