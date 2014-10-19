@@ -6,7 +6,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'King Of The Block' do
 
 pod 'Masonry'
-pod 'SocketRocket'
+pod 'socket.IO', '~> 0.5'
 
 end
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SocketIO.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <SocketIODelegate>
 
 @end
