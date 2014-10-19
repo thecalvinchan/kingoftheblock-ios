@@ -10,6 +10,8 @@
 #import "WebSocket.h"
 #import "Masonry.h"
 #import <MapKit/MapKit.h>
+#import "ImageHelpers.h"
+#import "ColorHelpers.h"
 
 @interface ActiveRunViewController()
 @property (strong, nonatomic)UIButton *sendCoordsButton;
@@ -40,22 +42,35 @@
     CLLocationCoordinate2D manhattanCoords = CLLocationCoordinate2DMake(40.790278, -73.959722);
     MKCoordinateSpan manhattanBounds = MKCoordinateSpanMake(0.05, 0.3);
     [self.activeMapView setRegion:MKCoordinateRegionMake(manhattanCoords, manhattanBounds)];
+    
+    // Add map subview
     [contentView addSubview:self.activeMapView];
     
     // Start Run Button
-    UIEdgeInsets padding = UIEdgeInsetsMake(10, 10, 10, 10);
     self.sendCoordsButton = [[UIButton alloc] init];
-    [self.sendCoordsButton addTarget:self action:@selector(sendCoords) forControlEvents:UIControlEventTouchUpInside];
+    [self.sendCoordsButton addTarget:self action:@selector(triggerActiveRunButton) forControlEvents:UIControlEventTouchUpInside];
+    
+    // Button States
     [self.sendCoordsButton setTitle:@"Start Run" forState:UIControlStateNormal];
-    [self.sendCoordsButton setBackgroundColor:[UIColor redColor]];
+    [self.sendCoordsButton setBackgroundImage:[ImageHelpers imageWithColor:[ColorHelpers leanAndGreen]] forState:UIControlStateNormal];
+    [self.sendCoordsButton setTitle:@"Finish Run" forState:UIControlStateSelected];
+    [self.sendCoordsButton setBackgroundImage:[ImageHelpers imageWithColor:[ColorHelpers deadRed]] forState:UIControlStateSelected];
+    
+    // Add Start Run Button subview
     [contentView addSubview:self.sendCoordsButton];
+    
+    // Position Start Run Button
+    UIEdgeInsets offsets = UIEdgeInsetsMake(10, 10, 10, 10);
+    [self.sendCoordsButton setContentEdgeInsets:UIEdgeInsetsMake(10.0, 0.0, 10.0, 0.0)];
     [self.sendCoordsButton mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.top.equalTo(self.view.mas_top).with.offset(padding.top); //with is an optional semantic filler
-        make.left.equalTo(contentView.mas_left).with.offset(padding.left);
-        make.bottom.equalTo(contentView.mas_bottom).with.offset(-self.tabBarController.tabBar.frame.size.height-padding.bottom);
-        make.right.equalTo(contentView.mas_right).with.offset(-padding.right);
+        make.left.equalTo(contentView.mas_left).with.offset(offsets.left);
+        make.bottom.equalTo(contentView.mas_bottom).with.offset(-self.tabBarController.tabBar.frame.size.height-offsets.bottom);
+        make.right.equalTo(contentView.mas_right).with.offset(-offsets.right);
     }];
+
     
+    // Add ViewController subview
     [self.view addSubview:contentView];
     socketIO = [WebSocket sharedWebSocket:self];
 }
@@ -68,9 +83,14 @@
 - (void) socketIODidConnect:(SocketIO *)socket {
 }
 
-- (void) sendCoords {
-    NSLog(@"Hello World");
-    [self startStandardUpdates];
+- (void) triggerActiveRunButton {
+    if (!self.sendCoordsButton.selected) {
+        [self.sendCoordsButton setSelected:true];
+        [self startStandardUpdates];
+    } else {
+        [self.sendCoordsButton setSelected:false];
+        [self stopStandardUpdates];
+    }
 }
 
 - (void)startStandardUpdates
@@ -85,6 +105,11 @@
         [self.locationManager requestWhenInUseAuthorization];
     }
     [self.locationManager startUpdatingLocation];
+}
+
+- (void)stopStandardUpdates
+{
+    [self.locationManager stopUpdatingLocation];
 }
 
 // Delegate method from the CLLocationManagerDelegate protocol.

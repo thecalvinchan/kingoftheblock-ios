@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E44B92B19F3858700A1C67A /* WebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B92A19F3858700A1C67A /* WebSocket.m */; };
 		3E44B92E19F3A3C000A1C67A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E44B92D19F3A3C000A1C67A /* CoreLocation.framework */; };
+		3E44B93419F3C31B00A1C67A /* ImageHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B93319F3C31B00A1C67A /* ImageHelpers.m */; };
+		3E44B93819F3C89E00A1C67A /* ColorHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E44B93719F3C89E00A1C67A /* ColorHelpers.m */; };
 		3E4851E419F3632100B4EAFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E319F3632100B4EAFA /* main.m */; };
 		3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E619F3632100B4EAFA /* AppDelegate.m */; };
 		3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851EE19F3632100B4EAFA /* Images.xcassets */; };
@@ -32,6 +34,10 @@
 		3E44B92919F3858700A1C67A /* WebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebSocket.h; path = Singletons/WebSocket.h; sourceTree = "<group>"; };
 		3E44B92A19F3858700A1C67A /* WebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebSocket.m; path = Singletons/WebSocket.m; sourceTree = "<group>"; };
 		3E44B92D19F3A3C000A1C67A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3E44B93219F3C31B00A1C67A /* ImageHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelpers.h; path = Helpers/ImageHelpers.h; sourceTree = "<group>"; };
+		3E44B93319F3C31B00A1C67A /* ImageHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelpers.m; path = Helpers/ImageHelpers.m; sourceTree = "<group>"; };
+		3E44B93619F3C89E00A1C67A /* ColorHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorHelpers.h; path = Helpers/ColorHelpers.h; sourceTree = "<group>"; };
+		3E44B93719F3C89E00A1C67A /* ColorHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorHelpers.m; path = Helpers/ColorHelpers.m; sourceTree = "<group>"; };
 		3E4851DE19F3632100B4EAFA /* King Of The Block.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "King Of The Block.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4851E219F3632100B4EAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4851E319F3632100B4EAFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,6 +84,17 @@
 			name = Singletons;
 			sourceTree = "<group>";
 		};
+		3E44B93519F3C31F00A1C67A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3E44B93619F3C89E00A1C67A /* ColorHelpers.h */,
+				3E44B93719F3C89E00A1C67A /* ColorHelpers.m */,
+				3E44B93219F3C31B00A1C67A /* ImageHelpers.h */,
+				3E44B93319F3C31B00A1C67A /* ImageHelpers.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		3E4851D519F3632100B4EAFA = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +125,7 @@
 				3E4851E119F3632100B4EAFA /* Supporting Files */,
 				3E48521219F37F3400B4EAFA /* Launchscreen.xib */,
 				3E44B92C19F3858B00A1C67A /* Singletons */,
+				3E44B93519F3C31F00A1C67A /* Helpers */,
 			);
 			path = "King Of The Block";
 			sourceTree = "<group>";
@@ -301,9 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E48521119F37ACC00B4EAFA /* ActiveRunViewController.m in Sources */,
+				3E44B93419F3C31B00A1C67A /* ImageHelpers.m in Sources */,
 				3E44B92B19F3858700A1C67A /* WebSocket.m in Sources */,
 				3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */,
 				3E4851E419F3632100B4EAFA /* main.m in Sources */,
+				3E44B93819F3C89E00A1C67A /* ColorHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
