@@ -9,13 +9,14 @@
 #import "ActiveRunViewController.h"
 #import "WebSocket.h"
 #import "Masonry.h"
-#import <MapKit/MapKit.h>
 #import "ImageHelpers.h"
 #import "ColorHelpers.h"
 
 @interface ActiveRunViewController()
 @property (strong, nonatomic)UIButton *sendCoordsButton;
 @property (strong, nonatomic)MKMapView *activeMapView;
+@property (strong, nonatomic)NSMutableArray *activeUserPath;
+@property (strong, nonatomic)MKPolyline *polyline;
 
 @end
 
@@ -33,6 +34,7 @@
     
     // MapView
     self.activeMapView = [[MKMapView alloc] initWithFrame:contentView.frame];
+    [self.activeMapView setDelegate:self];
     [self.activeMapView setRotateEnabled:false];
     [self.activeMapView setPitchEnabled:false];
     [self.activeMapView setZoomEnabled:false];
@@ -42,6 +44,7 @@
     CLLocationCoordinate2D manhattanCoords = CLLocationCoordinate2DMake(40.790278, -73.959722);
     MKCoordinateSpan manhattanBounds = MKCoordinateSpanMake(0.05, 0.3);
     [self.activeMapView setRegion:MKCoordinateRegionMake(manhattanCoords, manhattanBounds)];
+    [self.activeMapView setShowsUserLocation: true];
     
     // Add map subview
     [contentView addSubview:self.activeMapView];
@@ -85,12 +88,32 @@
 
 - (void) triggerActiveRunButton {
     if (!self.sendCoordsButton.selected) {
-        [self.sendCoordsButton setSelected:true];
-        [self startStandardUpdates];
+        [self startRun];
     } else {
-        [self.sendCoordsButton setSelected:false];
-        [self stopStandardUpdates];
+        [self stopRun];
     }
+}
+
+- (void)startRun {
+    [self.sendCoordsButton setSelected:true];
+    self.activeUserPath = [[NSMutableArray alloc] init];
+    [self startStandardUpdates];
+    
+}
+
+- (void)stopRun {
+    [self.sendCoordsButton setSelected:false];
+    // Re-center map to Manhattan
+    CLLocationCoordinate2D manhattanCoords = CLLocationCoordinate2DMake(40.790278, -73.959722);
+    MKCoordinateSpan manhattanBounds = MKCoordinateSpanMake(0.05, 0.3);
+    [self.activeMapView setRegion:MKCoordinateRegionMake(manhattanCoords, manhattanBounds)];
+    // Remove overlay polygons
+    [self.activeMapView removeOverlay:self.polyline];
+    
+    NSMutableDictionary *connectionData = [[NSMutableDictionary alloc] init];
+    [connectionData setValue:@"evancasey" forKey:@"userId"];
+    [socketIO sendEvent:@"endRun" withData:connectionData];
+    [self stopStandardUpdates];
 }
 
 - (void)startStandardUpdates
@@ -117,6 +140,7 @@
      didUpdateLocations:(NSArray *)locations {
     // If it's a relatively recent event, turn off updates to save power.
     CLLocation* location = [locations lastObject];
+    [self.activeUserPath addObject:location];
     NSDate* eventDate = location.timestamp;
     NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     if (abs(howRecent) < 15.0) {
@@ -126,12 +150,68 @@
               location.coordinate.longitude);
     }
     
+    // Center map to user
+    CLLocationCoordinate2D userCoords = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
+    MKCoordinateSpan userBounds = MKCoordinateSpanMake(0.0025, 0.0025);
+    [self.activeMapView setRegion:MKCoordinateRegionMake(userCoords, userBounds)];
+    
+    // Render existing path
+    NSUInteger count = [self.activeUserPath count];
+    NSLog([NSString stringWithFormat:@"%lu", (unsigned long)count]);
+    if (count > 1) {
+        CLLocationCoordinate2D coordinates[count];
+        for (NSInteger i = 0; i < count; i++) {
+            coordinates[i] = [(CLLocation *)self.activeUserPath[i] coordinate];
+        }
+        MKPolyline *oldPolyline = self.polyline;
+        self.polyline = [MKPolyline polylineWithCoordinates:coordinates count:count];
+        [self.activeMapView addOverlay:self.polyline];
+        if (oldPolyline)
+            [self.activeMapView removeOverlay:oldPolyline];
+    }
+    
+    // Send coordinates to server via websockets
     NSMutableDictionary *connectionData = [[NSMutableDictionary alloc] init];
     NSArray *coords = [NSArray arrayWithObjects:[NSNumber numberWithDouble:location.coordinate.latitude], [NSNumber numberWithDouble:location.coordinate.longitude], nil];
     
     [connectionData setValue:@"evancasey" forKey:@"userId"];
     [connectionData setValue:coords forKey:@"coords"];
     [socketIO sendEvent:@"updateLocation" withData:connectionData];
+}
+
+#pragma mark - MKMapViewDelegate
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+        NSLog(@"HELLO");
+        MKPolylineRenderer *renderer = [[MKPolylineRenderer alloc] initWithPolyline:overlay];
+        
+        renderer.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+        renderer.lineWidth   = 3;
+        
+        return renderer;
+    }
+    
+    return nil;
+}
+
+// for iOS versions prior to 7; see `rendererForOverlay` for iOS7 and later
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+        MKPolylineView *overlayView = [[MKPolylineView alloc] initWithPolyline:overlay];
+        
+        overlayView.strokeColor     = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+        overlayView.lineWidth       = 3;
+        
+        return overlayView;
+    }
+    
+    return nil;
 }
 
 @end

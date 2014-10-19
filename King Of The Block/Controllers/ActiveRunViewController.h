@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <SocketIO.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 
-@interface ActiveRunViewController: UIViewController <SocketIODelegate, CLLocationManagerDelegate>
+@interface ActiveRunViewController: UIViewController <SocketIODelegate, CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 

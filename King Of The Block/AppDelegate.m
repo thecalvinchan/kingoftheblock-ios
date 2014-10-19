@@ -25,7 +25,12 @@
     // Override point for customization after application launch.
     ActiveRunViewController *activeRunViewController = [[ActiveRunViewController alloc] init];
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    // Add Active Run View Controller
+    UITabBarItem *activeRunTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Run" image:nil selectedImage:nil];
+    [activeRunViewController setTabBarItem:activeRunTabBarItem];
     [tabBarController addChildViewController:activeRunViewController];
+    
+    [tabBarController setSelectedIndex:0];
     [self.window setRootViewController: tabBarController];
     return YES;
 }
