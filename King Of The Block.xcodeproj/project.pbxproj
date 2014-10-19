@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		3E4851E419F3632100B4EAFA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E319F3632100B4EAFA /* main.m */; };
 		3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E619F3632100B4EAFA /* AppDelegate.m */; };
-		3E4851EA19F3632100B4EAFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851E919F3632100B4EAFA /* ViewController.m */; };
 		3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E4851EE19F3632100B4EAFA /* Images.xcassets */; };
 		3E4851FE19F3632100B4EAFA /* King_Of_The_BlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */; };
+		3E48521119F37ACC00B4EAFA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E48521019F37ACC00B4EAFA /* LoginViewController.m */; };
+		3E48521319F37F3400B4EAFA /* Launchscreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E48521219F37F3400B4EAFA /* Launchscreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,12 +31,13 @@
 		3E4851E319F3632100B4EAFA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E4851E519F3632100B4EAFA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E4851E619F3632100B4EAFA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3E4851E819F3632100B4EAFA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3E4851E919F3632100B4EAFA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3E4851EE19F3632100B4EAFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E4851F719F3632100B4EAFA /* King Of The BlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "King Of The BlockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E4851FC19F3632100B4EAFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E4851FD19F3632100B4EAFA /* King_Of_The_BlockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = King_Of_The_BlockTests.m; sourceTree = "<group>"; };
+		3E48520F19F37ACC00B4EAFA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "King Of The Block/Controllers/LoginViewController.h"; sourceTree = "<group>"; };
+		3E48521019F37ACC00B4EAFA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "King Of The Block/Controllers/LoginViewController.m"; sourceTree = "<group>"; };
+		3E48521219F37F3400B4EAFA /* Launchscreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Launchscreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +79,12 @@
 		3E4851E019F3632100B4EAFA /* King Of The Block */ = {
 			isa = PBXGroup;
 			children = (
+				3E48520E19F37A8100B4EAFA /* Controllers */,
 				3E4851E519F3632100B4EAFA /* AppDelegate.h */,
 				3E4851E619F3632100B4EAFA /* AppDelegate.m */,
-				3E4851E819F3632100B4EAFA /* ViewController.h */,
-				3E4851E919F3632100B4EAFA /* ViewController.m */,
 				3E4851EE19F3632100B4EAFA /* Images.xcassets */,
 				3E4851E119F3632100B4EAFA /* Supporting Files */,
+				3E48521219F37F3400B4EAFA /* Launchscreen.xib */,
 			);
 			path = "King Of The Block";
 			sourceTree = "<group>";
@@ -111,6 +113,16 @@
 				3E4851FC19F3632100B4EAFA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E48520E19F37A8100B4EAFA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3E48520F19F37ACC00B4EAFA /* LoginViewController.h */,
+				3E48521019F37ACC00B4EAFA /* LoginViewController.m */,
+			);
+			name = Controllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E4851EF19F3632100B4EAFA /* Images.xcassets in Resources */,
+				3E48521319F37F3400B4EAFA /* Launchscreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E4851EA19F3632100B4EAFA /* ViewController.m in Sources */,
+				3E48521119F37ACC00B4EAFA /* LoginViewController.m in Sources */,
 				3E4851E719F3632100B4EAFA /* AppDelegate.m in Sources */,
 				3E4851E419F3632100B4EAFA /* main.m in Sources */,
 			);
@@ -319,6 +332,7 @@
 				INFOPLIST_FILE = "King Of The Block/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -329,6 +343,7 @@
 				INFOPLIST_FILE = "King Of The Block/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
