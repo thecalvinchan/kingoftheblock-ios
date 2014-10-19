@@ -5,9 +5,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'King Of The Block' do
 
+pod 'Masonry'
+pod 'SocketRocket'
+
 end
 
 target 'King Of The BlockTests' do
-
 end
-
