@@ -7,6 +7,7 @@ target 'King Of The Block' do
 
 pod 'Masonry'
 pod 'socket.IO', '~> 0.5'
+pod "AFNetworking", '~> 2.0'
 
 end
 

@@ -32,7 +32,7 @@
     [tabBarController addChildViewController:activeRunViewController];
     // Add Profile View Controller
     ProfileViewController *profileViewController = [[ProfileViewController alloc] init];
-    [profileViewController setUsername:@"cchan"];
+    [profileViewController setUsername:@"mary"];
     UINavigationController *profileNavigationController = [[UINavigationController alloc] init];
     [profileNavigationController pushViewController:profileViewController animated:false];
     UITabBarItem *profileTabBarItem = [[UITabBarItem alloc] initWithTitle:@"Profile" image:nil selectedImage:nil];

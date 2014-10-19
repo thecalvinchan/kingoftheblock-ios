@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface ProfileViewController : UIViewController <MKMapViewDelegate>
+@interface ProfileViewController : UIViewController <MKMapViewDelegate> {
+    NSMutableData *_responseData;
+}
 @property (strong, nonatomic) NSString *username;
 @end
